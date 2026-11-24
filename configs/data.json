@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "base_seed": 1234,
+  "counts": {"train": 24000, "val": 3000, "test": 3000, "ood_field": 1000, "ood_Z": 1000, "ood_family": 1000},
+  "grid": {"nx": 128, "L": 10.0, "dx": 0.15748031496062964, "dt": 0.2, "nt": 201, "stencil": 13},
+  "protocol": "1 electron, 1D, hard walls. Ground state of H0 = H(v0) for t < 0; at t = 0 a uniform field E is switched on suddenly and held constant, H1 = H(v0 + E x). Exact propagation by diagonalising H1.",
+  "n_spec": 16,
+  "max_alias_weight": 1e-08,
+  "max_attempts": 64,
+  "splits": {
+    "train": {
+      "family": "atom_fourier",
+      "z_range": [1.0, 2.0],
+      "amp_range": [0.0, 0.2],
+      "n_modes": 8,
+      "field_range": [-0.1, 0.1],
+      "accept": {"min_gap": 0.001}
+    },
+    "val": {
+      "family": "atom_fourier",
+      "z_range": [1.0, 2.0],
+      "amp_range": [0.0, 0.2],
+      "n_modes": 8,
+      "field_range": [-0.1, 0.1],
+      "accept": {"min_gap": 0.001}
+    },
+    "test": {
+      "family": "atom_fourier",
+      "z_range": [1.0, 2.0],
+      "amp_range": [0.0, 0.2],
+      "n_modes": 8,
+      "field_range": [-0.1, 0.1],
+      "accept": {"min_gap": 0.001}
+    },
+    "ood_field": {
+      "family": "atom_fourier",
+      "z_range": [1.0, 2.0],
+      "amp_range": [0.0, 0.2],
+      "n_modes": 8,
+      "field_range": null,
+      "field_abs_range": [0.1, 0.2],
+      "accept": {"min_gap": 0.001}
+    },
+    "ood_Z": {
+      "family": "atom_fourier",
+      "z_range": null,
+      "amp_range": [0.0, 0.2],
+      "n_modes": 8,
+      "field_range": [-0.1, 0.1],
+      "z_intervals": [[0.5, 1.0], [2.0, 3.0]],
+      "accept": {"min_gap": 0.001}
+    },
+    "ood_family": {
+      "family": "ood_family",
+      "z_range": [1.0, 2.0],
+      "amp_range": [0.0, 0.2],
+      "n_modes": 8,
+      "field_range": [-0.1, 0.1],
+      "families": ["double_well", "harmonic", "pure_fourier"],
+      "harmonic": {"center_range": [-0.5, 0.5]},
+      "double_well": {"separation_range": [1.5, 3.5], "width_range": [0.5, 1.0], "asymmetry_range": [-0.3, 0.3]},
+      "pure_fourier": {"n_modes": 8},
+      "accept": {"min_gap": 0.001, "max_wall_density": 1e-06}
+    }
+  }
+}
