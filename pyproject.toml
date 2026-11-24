@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lqm"
+version = "0.1.0"
+description = "LQM-1e: transformers for 1-electron density dynamics, trained on exact data"
+requires-python = ">=3.11"
+# Runtime dependencies are pinned in requirements.txt / requirements.lock.txt.
+
+[tool.setuptools.packages.find]
+include = ["lqm*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "slow: tests that take more than a few seconds",
+    "gpu: tests that need a CUDA device",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "UP", "B", "SIM", "I"]
+ignore = ["E501", "E741"]
