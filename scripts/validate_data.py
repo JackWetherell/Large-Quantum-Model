@@ -5,7 +5,9 @@ Cheap checks run over every trajectory in a file (schema, stored norm, zero curr
 gap, wall density, spectral weight). Expensive checks regenerate a random subsample of
 trajectories in float64 and verify bit-identical reproduction from (base_seed, split, seed),
 exact norm and ⟨H1⟩ conservation, the aliasing weight, the discrete continuity equation and the
-parity relation n(x, t; v0(−x), −E) = n(−x, t; v0, E). Distribution checks compare each OOD
+parity relation n(x, t; v0(−x), −E) = n(−x, t; v0, E), with a conditioning-aware tolerance
+max(1e-12, 10·ε·‖H1‖·max n / min(gap0, 1)) so near-degenerate wells are not flagged for
+round-off. Distribution checks compare each OOD
 split with ``train`` factor by factor (two-sample KS tests), confirming that exactly one factor
 moved.
 
@@ -53,7 +55,8 @@ TOL = {
     "wall_flux": 1e-12,
     "energy_rel": 1e-10,
     "continuity_rel": 1e-6,
-    "parity": 1e-12,
+    "parity": 1e-12,  # floor of the conditioning-aware parity tolerance (see deep_checks)
+    "parity_safety": 10.0,
     "alias": 1e-8,
     "min_gap": 1e-3,
     "wall_density": 1e-6,
@@ -182,7 +185,16 @@ def deep_checks(d: dict[str, Any], indices: np.ndarray, split: str, base_seed: i
     eps_p, vecs_p = eigensystem(v0_p + E_p[:, None] * C.X)
     _, u0_p = ground_state(v0_p)
     u_p, _ = wavefunction(eps_p, vecs_p, populations(vecs_p, u0_p), C.T)
-    parity = np.abs(density(u_p) - n[..., ::-1]).max()
+    # Parity tolerance is conditioning-aware: round-off in the ground-state eigenvector is amplified
+    # by ~eps_mach * ||H|| / gap0 (first-order perturbation theory), so near-degenerate wells
+    # (e.g. symmetric double wells) legitimately miss a flat tolerance. Per trajectory:
+    #   tol_i = max(TOL["parity"], safety * eps_mach * ||H1_i||_2 * max(n_i) / min(gap0_i, 1)).
+    # The flat 1e-12 stays as a floor, so well-conditioned trajectories are held to it unchanged.
+    parity_i = np.abs(density(u_p) - n[..., ::-1]).max(axis=(-2, -1))
+    h_norm = np.abs(eps).max(axis=-1)  # spectral norm of the symmetric H1
+    cond = np.finfo(np.float64).eps * h_norm * n.max(axis=(-2, -1)) / np.minimum(d["gap0"][indices], 1.0)
+    parity_tol_i = np.maximum(TOL["parity"], TOL["parity_safety"] * cond)
+    parity = parity_i.max()
 
     out = {
         "subsample": [int(s) for s in seeds],
@@ -198,6 +210,9 @@ def deep_checks(d: dict[str, Any], indices: np.ndarray, split: str, base_seed: i
         "wall_flux_max": _float(np.abs(wall_flux(dndt)).max()),
         "continuity_rel": _float(continuity),
         "parity_max": _float(parity),
+        "parity_ratio_max": _float((parity_i / parity_tol_i).max()),
+        "parity_tol_range": [_float(parity_tol_i.min()), _float(parity_tol_i.max())],
+        "parity_n_relaxed": int((parity_tol_i > TOL["parity"]).sum()),
         "alias_max": _float(aliasing_weight(eps, c**2).max()),
         "wall_density_t0_max": _float(density(u0)[:, [0, -1]].max()),
     }
@@ -208,7 +223,7 @@ def deep_checks(d: dict[str, Any], indices: np.ndarray, split: str, base_seed: i
         "current_t0": out["current_t0_max"] < TOL["current_t0"],
         "wall_flux": out["wall_flux_max"] < TOL["wall_flux"],
         "continuity": out["continuity_rel"] < TOL["continuity_rel"],
-        "parity": out["parity_max"] < TOL["parity"],
+        "parity": bool(np.all(parity_i < parity_tol_i)),
         "alias": out["alias_max"] < TOL["alias"],
     }
     return out

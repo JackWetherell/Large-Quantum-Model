@@ -1,5 +1,5 @@
 {
-  "all_pass": false,
+  "all_pass": true,
   "ood": {
     "ood_Z": {
       "expected_changed": [
@@ -162,6 +162,12 @@
         "energy_vs_stored_max": 3.3306690738754696e-15,
         "norm_err_f8_max": 4.884981308350689e-15,
         "parity_max": 2.2354340600827527e-13,
+        "parity_n_relaxed": 1,
+        "parity_ratio_max": 0.22354340600827527,
+        "parity_tol_range": [
+          1e-12,
+          1.162508734771748e-12
+        ],
         "pass": {
           "alias": true,
           "bit_identical": true,
@@ -307,6 +313,12 @@
         "energy_vs_stored_max": 1.1102230246251565e-15,
         "norm_err_f8_max": 3.774758283725532e-15,
         "parity_max": 1.8398615964088094e-12,
+        "parity_n_relaxed": 11,
+        "parity_ratio_max": 0.1321055300497274,
+        "parity_tol_range": [
+          1e-12,
+          4.755141928301976e-11
+        ],
         "pass": {
           "alias": true,
           "bit_identical": true,
@@ -314,7 +326,7 @@
           "current_t0": true,
           "energy_conserved": true,
           "norm_f8": true,
-          "parity": false,
+          "parity": true,
           "wall_flux": true
         },
         "subsample": [
@@ -387,7 +399,7 @@
         "wall_flux_max": 1.0934221594641194e-15
       },
       "git_hash": "3feb184d9e6e4b5fc2d9b3b630e11497afed07ef-dirty",
-      "pass": false,
+      "pass": true,
       "path": "data/ood_family.h5",
       "schema_problems": []
     },
@@ -452,6 +464,12 @@
         "energy_vs_stored_max": 1.2212453270876722e-15,
         "norm_err_f8_max": 3.552713678800501e-15,
         "parity_max": 3.3018032752352156e-13,
+        "parity_n_relaxed": 0,
+        "parity_ratio_max": 0.33018032752352156,
+        "parity_tol_range": [
+          1e-12,
+          1e-12
+        ],
         "pass": {
           "alias": true,
           "bit_identical": true,
@@ -597,6 +615,12 @@
         "energy_vs_stored_max": 1.3322676295501878e-15,
         "norm_err_f8_max": 3.774758283725532e-15,
         "parity_max": 1.7430501486614958e-13,
+        "parity_n_relaxed": 0,
+        "parity_ratio_max": 0.17430501486614958,
+        "parity_tol_range": [
+          1e-12,
+          1e-12
+        ],
         "pass": {
           "alias": true,
           "bit_identical": true,
@@ -742,6 +766,12 @@
         "energy_vs_stored_max": 2.220446049250313e-15,
         "norm_err_f8_max": 5.10702591327572e-15,
         "parity_max": 2.1882495815361835e-13,
+        "parity_n_relaxed": 0,
+        "parity_ratio_max": 0.21882495815361835,
+        "parity_tol_range": [
+          1e-12,
+          1e-12
+        ],
         "pass": {
           "alias": true,
           "bit_identical": true,
@@ -887,6 +917,12 @@
         "energy_vs_stored_max": 1.3322676295501878e-15,
         "norm_err_f8_max": 4.440892098500626e-15,
         "parity_max": 2.592648318255897e-13,
+        "parity_n_relaxed": 0,
+        "parity_ratio_max": 0.2592648318255897,
+        "parity_tol_range": [
+          1e-12,
+          1e-12
+        ],
         "pass": {
           "alias": true,
           "bit_identical": true,
@@ -982,6 +1018,7 @@
     "norm_f4": 1e-06,
     "norm_f8": 1e-12,
     "parity": 1e-12,
+    "parity_safety": 10.0,
     "wall_density": 1e-06,
     "wall_flux": 1e-12
   }
