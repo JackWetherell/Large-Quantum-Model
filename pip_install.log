@@ -309,3 +309,156 @@ Downloading nvidia_cuda_nvrtc-13.2.86-py3-none-manylinux2010_x86_64.manylinux_2_
 Downloading nvidia_cuda_runtime-13.2.86-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 9.8 MB/s  0:00:00
 Downloading nvidia_cufft-12.2.0.57-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (218.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 218.3/218.3 MB 12.6 MB/s  0:00:17
+Downloading nvidia_cufile-1.17.1.22-py3-none-manylinux_2_27_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 8.0 MB/s  0:00:00
+Downloading nvidia_cusolver-12.2.0.11-py3-none-manylinux_2_27_x86_64.whl (227.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 227.9/227.9 MB 11.9 MB/s  0:00:19
+Downloading nvidia_cusparse-12.7.10.12-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (151.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.0/151.0 MB 15.0 MB/s  0:00:10
+Downloading nvidia_nvjitlink-13.5.37-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (46.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.6/46.6 MB 15.8 MB/s  0:00:02
+Downloading nvidia_nvtx-13.2.86-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl (153 kB)
+Downloading triton-3.9.0-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (285.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 285.7/285.7 MB 8.9 MB/s  0:00:31
+Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.2/9.2 MB 10.1 MB/s  0:00:00
+Downloading matplotlib-3.11.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 11.2 MB/s  0:00:00
+Using cached seaborn-0.13.2-py3-none-any.whl (294 kB)
+Downloading jupyterlab-4.6.6-py3-none-any.whl (17.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.3/17.3 MB 209.1 kB/s  0:01:09
+Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading jupyter_server-2.21.1-py3-none-any.whl (394 kB)
+Downloading jupyterlab_server-2.28.1-py3-none-any.whl (60 kB)
+Downloading ipykernel-7.4.0-py3-none-any.whl (123 kB)
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading pytest-9.2.0-py3-none-any.whl (411 kB)
+Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+Downloading ruff-0.17.6-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.6/10.6 MB 3.5 MB/s  0:00:02
+Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+Using cached argon2_cffi-25.1.0-py3-none-any.whl (14 kB)
+Downloading async_lru-2.4.0-py3-none-any.whl (10 kB)
+Using cached babel-2.18.0-py3-none-any.whl (10.2 MB)
+Using cached comm-0.2.3-py3-none-any.whl (7.3 kB)
+Downloading contourpy-1.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (383 kB)
+Downloading cuda_pathfinder-1.9.1-py3-none-any.whl (63 kB)
+Downloading cupy_cuda13x-14.2.0-cp312-cp312-manylinux2014_x86_64.whl (69.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.4/69.4 MB 2.4 MB/s  0:00:29
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading debugpy-1.8.22-cp312-cp312-manylinux_2_34_x86_64.whl (4.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.0/4.0 MB 9.9 MB/s  0:00:00
+Downloading fonttools-4.68.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 16.3 MB/s  0:00:00
+Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Downloading ipython-9.19.1-py3-none-any.whl (649 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 649.9/649.9 kB 18.7 MB/s  0:00:00
+Using cached prompt_toolkit-3.0.53-py3-none-any.whl (392 kB)
+Using cached ipython_pygments_lexers-1.1.1-py3-none-any.whl (8.1 kB)
+Downloading jedi-0.20.1-py2.py3-none-any.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 20.6 MB/s  0:00:00
+Using cached parso-0.8.7-py2.py3-none-any.whl (107 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+Downloading cloudpickle-3.1.3-py3-none-any.whl (22 kB)
+Downloading json5-0.17.3-py3-none-any.whl (34 kB)
+Using cached jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Downloading jupyter_builder-1.3.0-py3-none-any.whl (950 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 950.3/950.3 kB 20.3 MB/s  0:00:00
+Using cached jupyter_client-8.10.0-py3-none-any.whl (110 kB)
+Using cached jupyter_core-5.9.1-py3-none-any.whl (29 kB)
+Using cached jupyter_events-0.12.1-py3-none-any.whl (19 kB)
+Downloading jsonpointer-3.12-py3-none-any.whl (10 kB)
+Using cached jupyter_lsp-2.3.1-py3-none-any.whl (77 kB)
+Using cached jupyter_server_terminals-0.5.4-py3-none-any.whl (13 kB)
+Downloading kiwisolver-1.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 20.2 MB/s  0:00:00
+Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Using cached matplotlib_inline-0.2.2-py3-none-any.whl (9.5 kB)
+Downloading narwhals-2.29.0-py3-none-any.whl (501 kB)
+Downloading nbconvert-7.17.2-py3-none-any.whl (262 kB)
+Downloading mistune-3.4.0-py3-none-any.whl (70 kB)
+Using cached bleach-6.4.0-py3-none-any.whl (165 kB)
+Using cached nbclient-0.11.0-py3-none-any.whl (25 kB)
+Using cached nbformat-5.11.1-py3-none-any.whl (79 kB)
+Downloading fastjsonschema-2.22.3-py3-none-any.whl (28 kB)
+Downloading nest_asyncio2-1.7.4-py3-none-any.whl (8.5 kB)
+Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 71.4 MB/s  0:00:00
+Using cached notebook_shim-0.2.4-py3-none-any.whl (13 kB)
+Downloading packaging-26.4-py3-none-any.whl (140 kB)
+Using cached pandocfilters-1.5.1-py2.py3-none-any.whl (8.7 kB)
+Using cached pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 8.9 MB/s  0:00:00
+Downloading platformdirs-4.14.8-py3-none-any.whl (94 kB)
+Using cached prometheus_client-0.26.0-py3-none-any.whl (64 kB)
+Using cached psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Using cached ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Using cached pygments-2.21.0-py3-none-any.whl (1.3 MB)
+Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+Using cached python_json_logger-4.2.0-py3-none-any.whl (14 kB)
+Downloading pyyaml-6.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (849 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 849.2/849.2 kB 19.4 MB/s  0:00:00
+Downloading pyzmq-27.3.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (855 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 855.2/855.2 kB 17.0 MB/s  0:00:00
+Using cached referencing-0.37.0-py3-none-any.whl (26 kB)
+Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading charset_normalizer-3.5.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (257 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading certifi-2026.11.20-py3-none-any.whl (127 kB)
+Using cached rfc3986_validator-0.1.1-py2.py3-none-any.whl (4.2 kB)
+Using cached rfc3987_syntax-1.1.0-py3-none-any.whl (8.0 kB)
+Using cached lark-1.3.1-py3-none-any.whl (113 kB)
+Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (371 kB)
+Downloading send2trash-2.2.0-py3-none-any.whl (17 kB)
+Downloading setuptools-84.2.1-py3-none-any.whl (876 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 876.3/876.3 kB 11.5 MB/s  0:00:00
+Using cached stack_data-0.6.3-py3-none-any.whl (24 kB)
+Using cached asttokens-3.0.2-py3-none-any.whl (28 kB)
+Downloading executing-2.3.0-py3-none-any.whl (29 kB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 11.1 MB/s  0:00:00
+Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+Using cached terminado-0.18.1-py3-none-any.whl (14 kB)
+Downloading threadpoolctl-3.8.0-py3-none-any.whl (32 kB)
+Using cached tinycss2-1.5.1-py3-none-any.whl (28 kB)
+Downloading tornado-6.6.1-cp311-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (534 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 534.5/534.5 kB 8.3 MB/s  0:00:00
+Using cached traitlets-5.16.1-py3-none-any.whl (86 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading wcwidth-0.9.5-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (822 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 822.7/822.7 kB 16.1 MB/s  0:00:00
+Using cached webcolors-25.10.0-py3-none-any.whl (14 kB)
+Using cached webencodings-0.6.1-py3-none-any.whl (8.7 kB)
+Using cached websocket_client-1.9.2-py3-none-any.whl (95 kB)
+Downloading argon2_cffi_bindings-26.2.0-cp310-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (26 kB)
+Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+Using cached beautifulsoup4-4.15.0-py3-none-any.whl (109 kB)
+Downloading soupsieve-4.1.3-py3-none-any.whl (59 kB)
+Using cached defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Downloading filelock-4.3.1-py3-none-any.whl (244 kB)
+Downloading fqdn-1.6.0-py3-none-any.whl (12 kB)
+Using cached isoduration-20.11.0-py3-none-any.whl (11 kB)
+Using cached arrow-1.4.0-py3-none-any.whl (68 kB)
+Using cached jupyterlab_pygments-0.3.0-py3-none-any.whl (15 kB)
+Downloading nvidia_cuda_cccl-13.3.5.0.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.1/4.1 MB 20.2 MB/s  0:00:00
+Downloading pure_eval-0.2.4-py3-none-any.whl (11 kB)
+Downloading pycparser-3.12-py3-none-any.whl (62 kB)
+Using cached rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+Using cached uri_template-1.3.0-py3-none-any.whl (11 kB)
+Installing collected packages: pure-eval, ptyprocess, nvidia-cusparselt-cu13, mpmath, cuda-toolkit, websocket-client, webencodings, webcolors, wcwidth, urllib3, uri-template, tzdata, typing-extensions, triton, traitlets, tqdm, tornado, threadpoolctl, sympy, soupsieve, six, setuptools, send2trash, ruff, rpds-py, rfc3986-validator, pyzmq, pyyaml, python-json-logger, pyparsing, pygments, pycparser, psutil, prometheus-client, pluggy, platformdirs, pillow, pexpect, parso, pandocfilters, packaging, nvidia-nvtx, nvidia-nvjitlink, nvidia-nccl-cu13, nvidia-cufile, nvidia-cuda-runtime, nvidia-cuda-nvrtc, nvidia-cuda-cupti, nvidia-cuda-cccl, numpy, networkx, nest-asyncio2, narwhals, mistune, MarkupSafe, lark, kiwisolver, jupyterlab-pygments, jsonpointer, json5, iniconfig, idna, h11, fsspec, fqdn, fonttools, filelock, fastjsonschema, executing, defusedxml, debugpy, cycler, cuda-pathfinder, comm, cloudpickle, charset_normalizer, certifi, babel, attrs, async-lru, asttokens, tinycss2, terminado, stack_data, scipy, rfc3987-syntax, rfc3339-validator, requests, referencing, python-dateutil, pytest, prompt_toolkit, nvidia-nvshmem-cu13, nvidia-cusparse, nvidia-cufft, nvidia-cublas, matplotlib-inline, jupyter-core, joblib, jinja2, jedi, ipython-pygments-lexers, httpcore, h5py, cupy-cuda13x, cuda-bindings, contourpy, cffi, bleach, beautifulsoup4, anyio, scikit-learn, pandas, nvidia-cusolver, nvidia-cudnn-cu13, matplotlib, jupyter-server-terminals, jupyter-client, jupyter-builder, jsonschema-specifications, ipython, httpx, arrow, argon2-cffi-bindings, seaborn, jsonschema, isoduration, ipykernel, argon2-cffi, torch, nbformat, nbclient, jupyter-events, nbconvert, jupyter-server, notebook-shim, jupyterlab-server, jupyter-lsp, jupyterlab, iDEA-latest
+
+Successfully installed MarkupSafe-3.0.4 anyio-4.16.0 argon2-cffi-25.1.0 argon2-cffi-bindings-26.2.0 arrow-1.4.0 asttokens-3.0.2 async-lru-2.4.0 attrs-26.1.0 babel-2.18.0 beautifulsoup4-4.15.0 bleach-6.4.0 certifi-2026.11.20 cffi-2.1.1 charset_normalizer-3.5.3 cloudpickle-3.1.3 comm-0.2.3 contourpy-1.4.0 cuda-bindings-13.5.0 cuda-pathfinder-1.9.1 cuda-toolkit-13.2.2 cupy-cuda13x-14.2.0 cycler-0.12.1 debugpy-1.8.22 defusedxml-0.7.1 executing-2.3.0 fastjsonschema-2.22.3 filelock-4.3.1 fonttools-4.68.0 fqdn-1.6.0 fsspec-2026.9.0 h11-0.16.0 h5py-3.16.0 httpcore-1.0.9 httpx-0.28.1 iDEA-latest-1.1.0 idna-3.20 iniconfig-2.3.1 ipykernel-7.4.0 ipython-9.19.1 ipython-pygments-lexers-1.1.1 isoduration-20.11.0 jedi-0.20.1 jinja2-3.1.6 joblib-1.6.0 json5-0.17.3 jsonpointer-3.12 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 jupyter-builder-1.3.0 jupyter-client-8.10.0 jupyter-core-5.9.1 jupyter-events-0.12.1 jupyter-lsp-2.3.1 jupyter-server-2.21.1 jupyter-server-terminals-0.5.4 jupyterlab-4.6.6 jupyterlab-pygments-0.3.0 jupyterlab-server-2.28.1 kiwisolver-1.5.1 lark-1.3.1 matplotlib-3.11.2 matplotlib-inline-0.2.2 mistune-3.4.0 mpmath-1.3.0 narwhals-2.29.0 nbclient-0.11.0 nbconvert-7.17.2 nbformat-5.11.1 nest-asyncio2-1.7.4 networkx-3.7 notebook-shim-0.2.4 numpy-2.5.5 nvidia-cublas-13.4.1.3 nvidia-cuda-cccl-13.3.5.0.6 nvidia-cuda-cupti-13.2.86 nvidia-cuda-nvrtc-13.2.86 nvidia-cuda-runtime-13.2.86 nvidia-cudnn-cu13-9.26.0.51 nvidia-cufft-12.2.0.57 nvidia-cufile-1.17.1.22 nvidia-cusolver-12.2.0.11 nvidia-cusparse-12.7.10.12 nvidia-cusparselt-cu13-0.8.1 nvidia-nccl-cu13-2.30.7 nvidia-nvjitlink-13.5.37 nvidia-nvshmem-cu13-3.7.2 nvidia-nvtx-13.2.86 packaging-26.4 pandas-3.1.1 pandocfilters-1.5.1 parso-0.8.7 pexpect-4.9.0 pillow-13.0.0 platformdirs-4.14.8 pluggy-1.7.0 prometheus-client-0.26.0 prompt_toolkit-3.0.53 psutil-7.2.2 ptyprocess-0.7.0 pure-eval-0.2.4 pycparser-3.12 pygments-2.21.0 pyparsing-3.3.3 pytest-9.2.0 python-dateutil-4.0.0 python-json-logger-4.2.0 pyyaml-6.0.4 pyzmq-27.3.0 referencing-0.37.0 requests-2.34.2 rfc3339-validator-0.1.4 rfc3986-validator-0.1.1 rfc3987-syntax-1.1.0 rpds-py-2026.9.1 ruff-0.17.6 scikit-learn-1.9.1 scipy-1.18.1 seaborn-0.13.2 send2trash-2.2.0 setuptools-84.2.1 six-1.17.0 soupsieve-4.1.3 stack_data-0.6.3 sympy-1.14.0 terminado-0.18.1 threadpoolctl-3.8.0 tinycss2-1.5.1 torch-2.15.0 tornado-6.6.1 tqdm-4.70.1 traitlets-5.16.1 triton-3.9.0 typing-extensions-4.16.0 tzdata-2026.6 uri-template-1.3.0 urllib3-2.8.0 wcwidth-0.9.5 webcolors-25.10.0 webencodings-0.6.1 websocket-client-1.9.2
+EXIT: 0
