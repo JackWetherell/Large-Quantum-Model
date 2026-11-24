@@ -1,0 +1,11 @@
+I would like to test how well a transformer could model the time propigation of the many-body density: v_ext(x,t) -> n(x,t) given v_ext and n(0,t).
+Just as LLMs can predict the next token, it would be interesting to see if a LQM (Large Quantum model) could predict the next charge ddensity, which could be applied at every gridpoint.
+An important consideration is now normalisation would be preserved.
+
+Starting with creating a simple contrained dataset of v(x,t), n(x.t): with v(x,t) being a constant after t<0 (random linear field), and v(x,0) being fourier sampled external potentials and the system only containing 1 electron. Make a report describing the dataset and some vizualisations.
+Then, train the simplest transformer model that should be able to do this task, that can be trained in a resonable time on my i9, 4090 machine.
+Train the model
+Produce an evaluation report of the transformer model
+Then, see if the nature of the embedding space is informative, using visualisation such as T-SNE, PCA ect possibly.
+Next, produce a report illustrating what can be learned by analysing this transformer model.
+
