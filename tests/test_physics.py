@@ -71,6 +71,36 @@ def _samples(splits: dict, n_each: int = 1) -> list[tuple[np.ndarray, float]]:
 # --- 1. Hamiltonian ----------------------------------------------------------------------
 
 
+def test_kinetic_stencil_from_first_principles():
+    """K = -1/2 d²/dx² with the 13-point central stencil, derived here independently of iDEA.
+
+    The symmetric coefficients c_0..c_6 solve the moment conditions
+    c_0 [m=0] + 2 sum_k c_k k^m = m! [m=2] for even m = 0..12, in exact rational arithmetic.
+    Rows near the walls are truncated (zero wavefunction outside the box), as in iDEA.
+    """
+    from fractions import Fraction
+    from math import factorial
+
+    ms = range(0, 13, 2)
+    a = [[Fraction(1 if m == 0 else 0)] + [Fraction(2 * k**m) for k in range(1, 7)] for m in ms]
+    b = [Fraction(factorial(2) if m == 2 else 0) for m in ms]
+    for col in range(7):  # Gauss-Jordan elimination in exact rationals
+        piv = next(r for r in range(col, 7) if a[r][col] != 0)
+        a[col], a[piv], b[col], b[piv] = a[piv], a[col], b[piv], b[col]
+        for r in range(7):
+            if r != col and a[r][col] != 0:
+                f = a[r][col] / a[col][col]
+                a[r] = [x - f * y for x, y in zip(a[r], a[col], strict=True)]
+                b[r] -= f * b[col]
+    c = [float(b[k] / a[k][k]) for k in range(7)]
+    assert c[0] == pytest.approx(-5369 / 1800, rel=1e-15)  # known 12th-order central coefficient
+    k_ref = np.zeros((C.NX, C.NX))
+    for off in range(-6, 7):
+        k_ref += np.diag(np.full(C.NX - abs(off), -0.5 * c[abs(off)] / C.DX**2), k=off)
+    k = kinetic_matrix()
+    assert np.abs(k - k_ref).max() < 1e-12 * np.abs(k_ref).max()
+
+
 def test_hamiltonian_matches_idea(splits):
     """Check 1: H = K + diag(v) is iDEA's Hamiltonian to < 1e-12 for every family."""
     worst = 0.0
@@ -232,7 +262,11 @@ def test_continuity(splits):
 
 
 def test_ehrenfest_dipole_velocity(splits):
-    """Ehrenfest: dx * sum(j) equals d<x>/dt from a delta = 1e-4 central difference."""
+    """Ehrenfest: dx * sum(j) equals d<x>/dt from a delta = 1e-4 central difference.
+
+    By summation by parts this follows from continuity, so it is a consistency check of
+    ``dipole_velocity`` rather than a physics check independent of the continuity test.
+    """
     worst = 0.0
     for d in splits.values():
         eps, u0 = ground_state(d["v0"])
@@ -280,6 +314,14 @@ def test_gap_and_wall_density(splits):
         if split in ("train", "val", "test", "ood_family"):
             wall = d["n"][:, 0, [0, -1]].max()
             assert wall < 1e-6, f"{split}: ground-state wall density {wall:.3e}"
+
+
+def test_wall_density_rejection_actually_rejects(config):
+    """Negative control for ``max_wall_density``: an impossible bound must reject every draw."""
+    spec = dict(_split_spec(config, "train"))
+    spec["accept"] = {"min_gap": 1e-3, "max_wall_density": -1.0}
+    with pytest.raises(RuntimeError, match="no acceptable potential"):
+        P.sample(spec, 0, trajectory_rng(BASE_SEED, "train", 0), max_attempts=3)
 
 
 def test_rejection_actually_rejects(config):

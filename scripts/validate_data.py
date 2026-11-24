@@ -60,6 +60,7 @@ TOL = {
     "ks_p": 1e-3,
 }
 CONTINUITY_DELTA = 1e-4  # a.u., for the central difference in time
+CHEAP_CHUNK = 1000  # trajectories per chunk in cheap_checks (bounds peak memory)
 
 
 def _float(x: Any) -> float:
@@ -88,27 +89,38 @@ def cheap_checks(d: dict[str, Any]) -> dict[str, Any]:
     dict
         Measured numbers plus ``pass`` booleans.
     """
-    n = d["n"].astype("f8")
-    j = d["j"].astype("f8")
-    norm_f4 = np.abs(n.sum(axis=-1) * C.DX - 1.0).max()
-    # Time-centred continuity from the stored frames only: O(DT^2) accurate, so this is a
-    # consistency smoke test, not a precision test (the precise version is in deep_checks).
-    jp = np.pad(j, [(0, 0), (0, 0), (1, 1)])
-    div = np.diff(jp, axis=-1) / C.DX
-    dndt_fd = (n[:, 2:] - n[:, :-2]) / (2.0 * C.DT)
-    resid = np.abs(dndt_fd + div[:, 1:-1]).max() / np.abs(dndt_fd).max()
+    # Whole-file reductions are done in chunks of trajectories so that peak memory scales with
+    # the chunk, not the split (the unchunked float64 version needed ~14x the f4 size of n).
+    norm_f4 = current_t0 = wall_t0 = wall_any = 0.0
+    min_density = np.inf
+    resid_num = resid_den = 0.0
+    for s in range(0, d["n"].shape[0], CHEAP_CHUNK):
+        n = d["n"][s : s + CHEAP_CHUNK].astype("f8")
+        j = d["j"][s : s + CHEAP_CHUNK].astype("f8")
+        norm_f4 = max(norm_f4, np.abs(n.sum(axis=-1) * C.DX - 1.0).max())
+        # Time-centred continuity from the stored frames only: O(DT^2) accurate, so this is a
+        # consistency smoke test, not a precision test (the precise version is in deep_checks).
+        div = np.diff(np.pad(j, [(0, 0), (0, 0), (1, 1)]), axis=-1) / C.DX
+        dndt_fd = (n[:, 2:] - n[:, :-2]) / (2.0 * C.DT)
+        resid_num = max(resid_num, np.abs(dndt_fd + div[:, 1:-1]).max())
+        resid_den = max(resid_den, np.abs(dndt_fd).max())
+        min_density = min(min_density, n.min())
+        current_t0 = max(current_t0, np.abs(j[:, 0, :]).max())
+        wall_t0 = max(wall_t0, n[:, 0, [0, -1]].max())
+        wall_any = max(wall_any, n[:, :, [0, -1]].max())
+    resid = resid_num / resid_den
     out = {
-        "n_trajectories": int(n.shape[0]),
+        "n_trajectories": int(d["n"].shape[0]),
         "families": {name: int((d["family"] == i).sum()) for name, i in C.FAMILY_IDS.items()},
         "norm_err_f4_max": _float(norm_f4),
         "norm_err_stored_max": _float(d["norm_err"].max()),
-        "min_density": _float(n.min()),
-        "current_t0_max": _float(np.abs(j[:, 0, :]).max()),
+        "min_density": _float(min_density),
+        "current_t0_max": _float(current_t0),
         "gap0_min": _float(d["gap0"].min()),
         "eps0_range": [_float(d["eps0"].min()), _float(d["eps0"].max())],
         "min_v0_range": [_float(d["v0"].min(axis=-1).min()), _float(d["v0"].min(axis=-1).max())],
-        "wall_density_t0_max": _float(n[:, 0, [0, -1]].max()),
-        "wall_density_any_t_max": _float(n[:, :, [0, -1]].max()),
+        "wall_density_t0_max": _float(wall_t0),
+        "wall_density_any_t_max": _float(wall_any),
         "spec_weight_missing_max": _float((1.0 - d["spec_w"].sum(axis=-1)).max()),
         "energy_range": [_float(d["energy"].min()), _float(d["energy"].max())],
         "abs_E_range": [_float(np.abs(d["E"]).min()), _float(np.abs(d["E"]).max())],

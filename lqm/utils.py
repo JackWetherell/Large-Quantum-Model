@@ -39,10 +39,20 @@ def set_global_seed(seed: int) -> None:
 
 
 def git_hash() -> str:
-    """Current git commit hash, with a ``-dirty`` suffix if the tree has uncommitted changes."""
+    """Current git commit hash, with a ``-dirty`` suffix if tracked files have uncommitted changes.
+
+    Untracked files (data, reports in progress, notes) do not change the code that ran, so they
+    do not mark the hash dirty.
+    """
     try:
         h = subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO_ROOT, capture_output=True, text=True, check=True)
-        d = subprocess.run(["git", "status", "--porcelain"], cwd=REPO_ROOT, capture_output=True, text=True, check=True)
+        d = subprocess.run(
+            ["git", "status", "--porcelain", "--untracked-files=no"],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
         return h.stdout.strip() + ("-dirty" if d.stdout.strip() else "")
     except (OSError, subprocess.CalledProcessError):
         logger.warning("could not determine git hash")

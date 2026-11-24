@@ -27,9 +27,15 @@ Scaling a shape u by s and shifting it by a constant changes only two numbers: t
 depth b = ε0 − min v0 (set by s) and the absolute energy offset (set by the shift). For every
 ``ood_family`` trajectory a *reference* ``atom_fourier`` potential is drawn from the same
 generator; ``match_binding`` then solves b(s) = b_ref for s by bisection and shifts so that
-ε0 = ε0_ref. Both min(v0) and ε0 therefore match an actual training draw exactly, so their
-marginal distributions over the OOD split are identical to the training ones by construction
-and only the *shape* of the potential is out of distribution.
+ε0 = ε0_ref. Both min(v0) and ε0 therefore match an actual training draw exactly. Their
+marginals over the OOD split are close to, but not exactly, the training ones: rejection
+(gap0, wall density) happens after matching and so conditions the reference draw slightly
+(measured KS p = 0.16 for ε0 and 0.20 for min v0 on the full split).
+
+Caveat: matching ε0 and min v0 does not fix the potential's *range*. The harmonic family reaches
+up to ~110 Ha at the walls (training: max − min v0 ≤ 1.8 Ha) and pure Fourier up to ~31 Ha, and
+the harmonic wells have larger gaps (0.7–1.5 vs 0.24–0.68 Ha) and ~5x smaller dipole response.
+So ``ood_family`` tests input scale and response amplitude as well as shape.
 """
 
 from __future__ import annotations
